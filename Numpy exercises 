@@ -1,0 +1,308 @@
+
+# coding: utf-8
+
+# In[1]:
+
+import numpy as np
+
+
+# In[2]:
+
+a = np.array([1,2,3])
+
+
+# In[ ]:
+
+b = np.array([1,1,1])
+
+
+# #excercise 1, given arrays a and b each of the same size calculate their sum (elementwise) and their product (elementwise)
+
+# The sum of A and B is [2 3 4] and the product of A and B is [4 10 18]
+
+# In[5]:
+
+sum = a+b
+
+
+# In[6]:
+
+print(sum)
+
+
+# In[ ]:
+
+product = a*b
+
+
+# In[7]:
+
+print(product)
+
+
+# #excercise 2, Calculate the mean of all elements in an array A without using the np.mean or np.average functions
+
+# In[25]:
+
+a_mean = np.sum(a)/np.size(a)
+
+
+# #exercise 3, Calculate the standard deviation of all elements in an array A without using np.var or np.std
+
+# In[28]:
+
+a_std = np.sqrt(np.sum(np.square((a-a_mean)))/np.size(np.square((a-a_mean))))
+
+
+# #exercise 4, Given an array C with shape (128,) calculate the sum of the first, third, fifth, etc elements
+
+# In[34]:
+
+C = np.random.rand(128) #creates an array C with shape (128,)
+
+
+# In[35]:
+
+D = np.tile((1,0), 64)
+
+
+# In[36]:
+
+Odd_numbers= np.sum(np.multiply(C,D))
+
+
+# In[37]:
+
+print(Odd_numbers)
+
+
+# In[14]:
+
+print(a[::-1])
+
+
+# #exercise 5, Given an array E with shape (1024,) maken an array F containing only the first 512 elements of E
+
+# In[38]:
+
+E = np.random.rand(1024)
+
+
+# In[39]:
+
+F = E[:512]
+
+
+# #exercise 6, Given an array F with shape (1024,) make an array G containing only the elements F[22], F[23],...,F[42]
+
+# In[42]:
+
+F = np.random.rand(1024)
+
+
+# In[ ]:
+
+G = F[22:43]
+
+
+# #exercise 7, Given an array H with shape (1024,) and an integer array I make an array J whose elements are H[I[0]], H[I[1]],...,H[I[-1] VRAGEN HIEROVER!!
+
+# #exercise 8, Given an array K with shape (L,) make an array with all elements of K in reverse order
+
+# In[43]:
+
+K = np.random.rand(10)
+
+
+# In[50]:
+
+K_reverse = K[::-1]
+
+
+# #exercise 9, Given an array M = np.random.rand(128) make an array N containing all elements in M that are less then or equal to 0,5
+
+# In[48]:
+
+M = np.random.rand(128)
+
+
+# In[49]:
+
+N=M[M<=0,5] #whats wrong here?
+
+
+# #Exercise 1, Given an array (vector) of A of shape (N,) make it into an array B of shape (N,1)
+
+# In[51]:
+
+N=9 #defines a value for N
+
+
+# In[52]:
+
+A = np.random.rand(N) #Create an array A with shape (N,)
+
+
+# In[58]:
+
+B = np.reshape(A, (N,1)) #Create an array B by reshaping A
+
+
+# #Exercise 2, Given an array (vector) A of shape (N,) make it into an array B of shape (1,N)
+
+# In[61]:
+
+A = np.random.rand(N)
+
+
+# In[62]:
+
+B = np.reshape(A, (1,N)) #creates an array B by reshaping A
+
+
+# #exercise 3, Given an array A of shape (M,N) what is A[i]? What are the valid values for i?
+
+# In[63]:
+
+#A[i] is the same as A[i,:], meaning that it contains the elements of the row with index
+# i in A. for instance, A[0] i the row with index 0. The values for iare 0,1,..M-1
+
+
+# #exercise 4, Given an array of shape (3,5) and let v5 be an array of shape (5,). Subtract v5 from each row in A35
+
+# In[64]:
+
+A35 = np.random.rand(3,5)
+
+
+# In[65]:
+
+v5 = np.random.rand(5)
+
+
+# In[66]:
+
+Diff= A35-v5
+
+
+# In[67]:
+
+print(Diff)
+
+
+# #exercise 5, let A35 be an array of shape (3,5) and let v3 be an array of shape (3,). Subtract v3 from each column in A35
+
+# In[68]:
+
+A35 = np.random.rand(3,5)
+
+
+# In[69]:
+
+v3 = np.random.rand(3)
+
+
+# In[70]:
+
+Diff = A35.T-v3
+
+
+# In[71]:
+
+print(Diff)
+
+
+# #exercise 1, Calculate the inner product of two vector v and w both of shape (N,)
+
+# In[72]:
+
+N=9 #define a value for N
+
+
+# In[73]:
+
+v=np.random.rand(N)
+
+
+# In[74]:
+
+w=np.random.rand(N)
+
+
+# In[75]:
+
+print(np.dot(v,w))
+
+
+# #exercise 2, Calculate the product of a matrix of shape (M,N) with a vector v of shape (N,)
+
+# In[76]:
+
+M = 8 #defines a value for M
+
+
+# In[77]:
+
+N = 9 #defines a value for N
+
+
+# In[78]:
+
+A = np.random.rand(M,N)
+
+
+# In[79]:
+
+v = np.random.rand(N)
+
+
+# In[82]:
+
+Av = np.dot(A,v)
+
+
+# In[83]:
+
+print(Av)
+
+
+# #exercise 3, let v be an array of shape (N,). What is the shape of v.T 
+
+# the size is unchanged
+
+# #exercise 4. Let A be an array of shape (3,5) and let v3 be an array of shape (3,). We define v31 = v3.reshape(3,1). What is v3 @ A, v31 @ A and v31.T @ A
+
+# In[86]:
+
+A = np.random.rand(3,5)
+
+
+# In[87]:
+
+v3 = np.random.rand(3,)
+
+
+# In[88]:
+
+v31 = v3.reshape(3,1)
+
+
+# In[89]:
+
+print(v3@A)
+
+
+# In[90]:
+
+print(v31.T@A)
+
+
+# In[91]:
+
+#v31@a cannot be computed because v31 has 1 column and a has 3 rows
+
+
+# In[ ]:
+
+
+
